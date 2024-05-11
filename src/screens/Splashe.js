@@ -1,25 +1,22 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useEffect } from 'react'
-import image from '../assest/images/images'
-import { useNavigation } from '@react-navigation/native'
-import ScreenNames from '../../route/ScreenNames'
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import React, { useEffect } from 'react';
+import image from '../assest/images/images';
+import { useNavigation } from '@react-navigation/native';
+import ScreenNames from '../../route/ScreenNames'; // Import ScreenNames if it's defined in a separate file
 
 const Splashe = () => {
     const navigation = useNavigation();
+
     const handPress = () => {
-        navigation.navigate(ScreenNames.HomeScreen); 
+        setTimeout(() => {
+            navigation.replace(ScreenNames.HomeScreen);
+        }, 3000);
     }
 
     useEffect(() => {
-        const delay = 1000; // 3 seconds in milliseconds
-
-        const timer = setTimeout(() => {
-            navigation.replace(ScreenNames.HomeScreen); 
-        }, delay);
-
-        // Clean up the timer to avoid memory leaks
-        return () => clearTimeout(timer);
-    }, []); 
+        handPress()
+    }, [])
+    
 
     return (
         <View style={styles.container}> 
@@ -29,18 +26,16 @@ const Splashe = () => {
         </View>
     )
 }
-    
 
-
-export default Splashe
+export default Splashe;
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
-        alignItems:'center',
-        justifyContent:'center'
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     logo: {
         marginBottom: '40%'
     }
-})
+});

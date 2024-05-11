@@ -1,51 +1,86 @@
-import { FlatList, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import materials from '../res/data'; // Ensure the correct import path for materials data
+import { View, Text, StyleSheet, Image } from 'react-native';
+import materials from '../res/data'; 
 
-const MaterialsCompoents = () => {
-  const renderMaterial = ({item})=> (
-          <View style={styles.materialContainer}>
-              <TouchableOpacity>
-                  <Text style={styles.materialName}>{item.name}</Text>
-                  <Image source={item.image()} style={styles.materialImage} />
-              </TouchableOpacity>
-          </View>
-      );
-      
-
+const MaterialsComponents = () => {
   return (
     <View style={styles.container}>
-     <FlatList data={materials} renderItem={renderMaterial} numColumns={2}/>
+      {materials.map((material, index) => (
+        <View key={index} style={styles.materialContainer}>
+          <Text style={styles.materialName}>{material.name}</Text>
+          <View style={styles.dataContainer}>
+            {material.data.map((dataItem, dataIndex) => (
+              <View key={dataIndex} style={styles.dataItem}>
+                <Image source={dataItem.img} style={styles.materialImage} />
+                <Text style={styles.dataText}>{dataItem.name}</Text>
+                <Text style={styles.dataText}>{dataItem.price}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+      ))}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    alignItems: 'center', 
-    justifyContent: 'center', 
-    flexDirection:'row'
+    flex: 1,
+    padding: 10,
+    backgroundColor: '#f0f0f0', 
   },
   materialContainer: {
-    marginVertical: 10, 
-    alignItems: 'center', 
+    marginBottom: 20,
+    backgroundColor: '#ffffff', 
+    padding: 10,
+    borderRadius: 8,
+    elevation: 3, 
+    shadowColor: '#000000', 
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
   },
   materialName: {
-    fontSize: 18, 
+    fontSize: 20,
     fontWeight: 'bold',
-    marginLeft:50,
-    margin:5
+    marginBottom: 10,
+    color: '#333333', 
+  },
+  dataContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between', 
+  },
+  dataItem: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 5,
+    width: '48%', 
+    backgroundColor: '#ffffff', 
+    padding: 10,
+    borderRadius: 8, 
+    elevation: 2,
+    shadowColor: '#000000', 
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
   },
   materialImage: {
-    width: 150, 
-    height: 150, 
-    resizeMode: 'cover', 
-    margin:5,
-    marginLeft:35,
-    marginRight:10
-    
+    width: 80,
+    height: 80,
+    resizeMode: 'cover',
+    marginBottom: 5,
+  },
+  dataText: {
+    textAlign: 'center',
+    color: '#666666', 
   },
 });
 
-export default MaterialsCompoents;
+export default MaterialsComponents;
