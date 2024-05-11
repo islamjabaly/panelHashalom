@@ -18,7 +18,7 @@ const MenuHeader = () => {
             </ScrollView>
         </View>
     );
-};
+}
 
 export default MenuHeader;
 

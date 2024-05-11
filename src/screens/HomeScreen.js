@@ -18,7 +18,7 @@ const HomeScreen = () => {
             <View style={styles.headerpic}>
                 <Image source={image.Headerpicture()} style={styles.headerImage} />
             </View>
-            {/* <MenuHeader /> */}
+            { <MenuHeader /> }
             <View style={styles.searchContainer}>
                 {/* <TextInput
                     style={styles.searchInput}
