@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import image from '../assest/images/images';
-import ResultSearch from '../components/ResultSearch';
 import materials from '../res/data';
+import ResultSearch from '../compoenents/ResultSearch';
 
 export default function SearchPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -23,7 +23,7 @@ export default function SearchPage() {
       <TouchableOpacity onPress={handleSearch}>
         <Image source={image.SearchIcon()} style={styles.searchPic} />
       </TouchableOpacity>
-      <ResultSearch materials={materials} searchTerm={searchTerm} />
+      <ResultSearch materials={materials} searchTerm={searchTerm} /> 
     </View>
   );
 }
