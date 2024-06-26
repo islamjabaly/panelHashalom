@@ -2,6 +2,7 @@ import image from "../assest/images/images";
 
 const materials=[
     {
+        id:1,
         name:'ברזל',
         data:[
             {
@@ -26,6 +27,9 @@ const materials=[
         ]
     },
     {
+        id:2,
+
+
         name:'צבע',
         data:[
             {
@@ -51,6 +55,9 @@ const materials=[
         
     },
     {
+        id:3,
+
+
         name:' ברגים',
         data:[
             {
@@ -74,6 +81,9 @@ const materials=[
 },      
         ]    }, 
     {
+        
+        id:4,
+
         name:'פנל מבודד קיר לבן ',
         data:[
             {
@@ -97,6 +107,8 @@ const materials=[
 },      
         ]    },
     {
+        id:5,
+
         name:'פנל מבודד גג ',
         data:[
             {
@@ -120,6 +132,8 @@ const materials=[
 },      
         ]    },
     {
+        id:6,
+
         name:'אבזרים פח',
         data:[
             {
@@ -153,6 +167,8 @@ const materials=[
 },      
         ]    },
     {
+        id:7,
+
         name:'עץ',
         data:[
             {
@@ -176,6 +192,8 @@ const materials=[
 },      
         ]    },
     {
+        id:8,
+
         name:' אנסטלציה',
         data:[
             {
@@ -199,6 +217,8 @@ const materials=[
 },      
         ]    },
     {
+        id:9,
+
         name:' גבס',
         data:[
             {

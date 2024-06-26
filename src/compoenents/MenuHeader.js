@@ -1,12 +1,16 @@
-import { ScrollView, StyleSheet, Text, TouchableHighlight, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import dataHeaderMenu from '../res/dataHeaderMenu';
 
-const MenuHeader = () => {
+const MenuHeader = ({ setSelectedId }) => {
+    const handleCategoryPress = (id) => {
+        setSelectedId(id);
+    };
+
     const renderMenuHeader = () => {
         return dataHeaderMenu.map((item, index) => (
-            <TouchableOpacity style={styles.btn}>
-                <Text key={index}>{item.title}</Text>
+            <TouchableOpacity key={index} style={styles.btn} onPress={() => handleCategoryPress(item.id)}>
+                <Text>{item.title}</Text>
             </TouchableOpacity>
         ));
     };

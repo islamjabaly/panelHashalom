@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; 
 import image from '../assest/images/images';
@@ -8,6 +8,7 @@ import ScreenNames from '../../route/ScreenNames';
 
 const HomeScreen = () => {
     const navigation = useNavigation(); 
+    const [selectedId, setSelectedId] = useState(null);
 
     const handleSearch = () => {
         navigation.navigate(ScreenNames.SearchPage); 
@@ -18,7 +19,7 @@ const HomeScreen = () => {
             <View style={styles.headerpic}>
                 <Image source={image.Headerpicture()} style={styles.headerImage} />
             </View>
-            { <MenuHeader /> }
+            <MenuHeader setSelectedId={setSelectedId} />
             <View style={styles.searchContainer}>
                 {/* <TextInput
                     style={styles.searchInput}
@@ -30,7 +31,7 @@ const HomeScreen = () => {
                 </TouchableOpacity>
             </View>
             <ScrollView>
-                <MaterialsComponents />
+                <MaterialsComponents selectedId={selectedId} />
             </ScrollView>
         </View>
     );
