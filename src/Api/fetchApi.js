@@ -1,4 +1,4 @@
-const baseUrl = "http://192.168.0.142:8000";
+const baseUrl = "https://serverpanelhashalom.onrender.com";
 
 export const fetchApi = async (route, method, body) => {
   const url = baseUrl + route;
